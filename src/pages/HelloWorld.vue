@@ -14,6 +14,8 @@
     <router-view/>
     <hr>
     <h2>5、无招胜有招的高阶组件</h2>
+    <High-Order-Component-One :value="highOrderComponentOneValue" label="labelOne" placeholder="please input valueOne" @input="handleInputOne('highOrderComponentOneInput')" @focus="handleFocus('highOrderComponentOneFocus')"></High-Order-Component-One>
+    <High-Order-Component-Two :value="highOrderComponentTwoValue" label="labelTwo" placeholder="please input valueTwo" @input="handleInputTwo" @focus="handleFocus('highOrderComponentTwoFocus')"></High-Order-Component-Two>
 
   </div>
 </template>
@@ -26,7 +28,9 @@ export default {
       inputNumber: "",
       squareResult: "未知",
       squareMap: {},
-      msg: 'Welcome to Your Vue.js App'
+
+      highOrderComponentOneValue: "",
+      highOrderComponentTwoValue: "",
     }
   },
   created() {
@@ -59,6 +63,15 @@ export default {
       _that.$router.push({
         name: routeName,
       });
+    },
+    handleInputOne() {
+      console.log("highOrderComponentOneInput");
+    },
+    handleInputTwo(value) {
+      console.log(value);
+    },
+    handleFocus(string) {
+      console.log(string);
     },
   },
 }
